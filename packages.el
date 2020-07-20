@@ -48,9 +48,8 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-
 (package! eaf
-  :when IS-LINUX
+  :disable (not IS-LINUX)
   :recipe (:host github
            :repo "manateelazycat/emacs-application-framework"
            :files ("*")))

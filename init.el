@@ -150,7 +150,7 @@
         +dragndrop
         +gnuplot
         +ipython
-        +jupyter
+        ;;+jupyter
         +roam)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
@@ -186,9 +186,6 @@
        :app
        ;;calendar
        ;;irc               ; howl
-       ;;(mu4e +gmail)
-       ;;notmuch
-       ;;(wanderlust +gmail) neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
 
