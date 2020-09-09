@@ -46,7 +46,11 @@
 (setq org-directory (concat liszt-home "/Notes")
       org-archive-location (concat org-directory "/Archives/%s::")
       org-roam-directory (concat org-directory "/Roam")
+      org-roam-tag-sources '(prop last-directory)
       deft-directory org-directory
+      )
+(setq org-superstar-headline-bullets-list
+      '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷")
       )
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
