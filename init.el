@@ -153,7 +153,8 @@
         +dragndrop
         +gnuplot
         +ipython
-        ;;+jupyter
+        +jupyter
+        +pretty
         +roam)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
