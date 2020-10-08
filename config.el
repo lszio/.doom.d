@@ -75,10 +75,3 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;; Key-bindings
-(map!
- :gnvime
- "C-h" #'evil-window-left
- "C-j" #'evil-window-down
- "C-k" #'evil-window-up
- "C-l" #'evil-window-right
- )

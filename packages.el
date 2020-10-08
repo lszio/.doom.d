@@ -53,3 +53,7 @@
   :recipe (:host github
            :repo "manateelazycat/emacs-application-framework"
            :files ("*")))
+
+(package! leetcode)
+(package! rime)
+(package! sis)
