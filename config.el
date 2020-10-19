@@ -3,11 +3,18 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Liszt21"
       user-mail-address "1832666492@qq.com")
+
+(if IS-WINDOWS
+    (setq liszt-home "C:/Liszt")
+  (setq liszt-home "~"))
+
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type relative)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -25,10 +32,6 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(if IS-WINDOWS
-    (setq liszt-home "C:/Liszt")
-  (setq liszt-home "~"))
-
 (when (display-graphic-p)
   (defun set-font (english chinese english-size chinese-size)
     (set-face-attribute 'default nil :font
@@ -36,10 +39,11 @@
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font) charset
                         (font-spec :family chinese :size chinese-size))))
-  (set-font "Fira Code" "kaiti" 20 24)
-  )
+  (set-font "Fira Code" "kaiti" 20 24))
 
 (setq doom-theme 'doom-one)
+(display-time-mode)
+(toggle-frame-maximized)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -52,11 +56,6 @@
 (setq org-superstar-headline-bullets-list
       '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷")
       )
-
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -75,3 +74,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;; Key-bindings
+(use-package rime
+  :custom
+  (default-input-method "rime"))
+
+(use-package leetcode)

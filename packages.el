@@ -56,4 +56,9 @@
 
 (package! leetcode)
 (package! rime)
-(package! sis)
+;; (package! sis)
+(package! esup)
+(package! anki
+  :recipe (:host github
+           :repo "chenyanming/anki"
+           :files ("*")))
