@@ -12,10 +12,6 @@
     (setq liszt-home "C:/Liszt")
   (setq liszt-home "~"))
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
-
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -42,6 +38,10 @@
   (set-font "Fira Code" "kaiti" 20 24))
 
 (setq doom-theme 'doom-one)
+
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type 'relative)
 (display-time-mode)
 (toggle-frame-maximized)
 
@@ -49,13 +49,14 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory (concat liszt-home "/Notes")
       org-archive-location (concat org-directory "/Archives/%s::")
-      org-roam-directory (concat org-directory "/Roam")
-      org-roam-tag-sources '(prop last-directory)
       deft-directory org-directory
+      org-roam-directory org-directory
+      org-roam-tag-sources '(prop last-directory)
+      org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷")
       )
-(setq org-superstar-headline-bullets-list
-      '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷")
-      )
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "NEXT(n)" "PEND(p)" "WILL(w/!)" "|" "DONE(d!)" "QUIT(q@)")
+        ))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
