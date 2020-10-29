@@ -54,9 +54,38 @@
       org-roam-tag-sources '(prop last-directory)
       org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷")
       )
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "PEND(p)" "WILL(w/!)" "|" "DONE(d!)" "QUIT(q@)")
-        ))
+(after! org
+  (setq org-todo-keywords
+        '((sequence "TODO(t)"
+                    "NEXT(n)"
+                    "PEND(p)"
+                    "WILL(w/!)"
+                    "|"
+                    "DONE(d!)"
+                    "QUIT(q@)")
+          (sequence "[ ](T)"
+                    "[-](N)"
+                    "[:](P)"
+                    "[?](W)"
+                    "|"
+                    "[X](D)"
+                    "[Q](Q)"))
+        )
+  (setq org-todo-keyword-faces
+        '(("TODO" :foreground "orange"       :weight bold)
+          ("[ ]"  :foreground "orange"       :weight bold)
+          ("NEXT" :foreground "yellow"       :weight bold)
+          ("[-]" :foreground "yellow"       :weight bold)
+          ("PEND" :foreground "white"        :weight bold)
+          ("[:]"  :foreground "white"        :weight bold)
+          ("WILL" :foreground "purple"        :weight bold)
+          ("[?]"  :foreground "purple"        :weight bold)
+          ("DONE" :foreground "forest green" :weight bold)
+          ("[X]"  :foreground "forest green" :weight bold)
+          ("QUIT" :foreground "grey"          :weight bold)
+          ("[Q]" :foreground "grey"          :weight bold)))
+
+  )
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
