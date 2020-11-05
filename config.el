@@ -109,3 +109,5 @@
   (default-input-method "rime"))
 
 (use-package leetcode)
+
+(setq global-wakatime-mode t)

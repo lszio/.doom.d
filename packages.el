@@ -62,3 +62,4 @@
   :recipe (:host github
            :repo "chenyanming/anki"
            :files ("*")))
+(package! wakatime-mode)
