@@ -14,6 +14,10 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
+(defconst linux?   (eq system-type 'gnu/linux) "Are we on a linux machine?")
+(defconst macos?   (eq system-type 'darwin)    "Are we on a macOS machine?")
+(defconst windows? (not (or linux? macos?))    "Are we on windows machine?")
+
 (doom! :input
        ;;chinese
        ;;japanese
@@ -26,7 +30,7 @@
        ;;ido               ; the other *other* search engine...
        (ivy
         +fuzzy
-        +icon)               ; a search engine for love and life
+        +icons)               ; a search engine for love and life
 
        :ui
        deft              ; notational velocity for Emacs
@@ -47,8 +51,8 @@
        ;; tabs              ; a tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
-       vc-gutter         ; vcs diff in the fringe
-       vi-tilde-fringe   ; fringe tildes to mark beyond EOB
+       ;; vc-gutter         ; vcs diff in the fringe
+       ;; vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
        zen               ; distraction-free coding or writing
@@ -68,7 +72,7 @@
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       dired             ; making dired pretty [functional]
+       (dired +ranger +icons)             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ibuffer         ; interactive buffer management
        undo              ; persistent, smarter undo for your inevitable mistakes
@@ -153,7 +157,9 @@
         +dragndrop
         +gnuplot
         +ipython
-        ;; +jupyter
+        +jupyter
+        +present
+        +pomodoro
         +pretty
         +roam)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
@@ -180,12 +186,12 @@
        :email
        ;;(mu4e +gmail)
        ;;notmuch
-       ;;(wanderlust +gmail)
+       (wanderlust +gmail)
 
        :app
        ;;calendar
        ;;irc               ; how neckbeards socialize
-       ;;(rss +org)        ; emacs as an RSS reader
+       (rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config

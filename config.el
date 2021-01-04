@@ -48,7 +48,7 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory (concat liszt-home "/Notes")
-      org-archive-location (concat org-directory "/Archives/%s::")
+      org-archive-location (concat org-directory "/Archived/%s::")
       deft-directory org-directory
       org-roam-directory org-directory
       org-roam-tag-sources '(prop last-directory)
@@ -75,15 +75,15 @@
         '(("TODO" :foreground "orange"       :weight bold)
           ("[ ]"  :foreground "orange"       :weight bold)
           ("NEXT" :foreground "yellow"       :weight bold)
-          ("[-]" :foreground "yellow"       :weight bold)
-          ("PEND" :foreground "white"        :weight bold)
-          ("[:]"  :foreground "white"        :weight bold)
+          ("[-]" :foreground  "yellow"       :weight bold)
+          ("PEND" :foreground "pink"        :weight bold)
+          ("[:]"  :foreground "pink"        :weight bold)
           ("WILL" :foreground "purple"        :weight bold)
           ("[?]"  :foreground "purple"        :weight bold)
           ("DONE" :foreground "forest green" :weight bold)
           ("[X]"  :foreground "forest green" :weight bold)
           ("QUIT" :foreground "grey"          :weight bold)
-          ("[Q]" :foreground "grey"          :weight bold)))
+          ("[Q]" :foreground  "grey"          :weight bold)))
 
   )
 
@@ -109,12 +109,16 @@
   (default-input-method "rime"))
 
 (use-package leetcode)
+(setq leetcode-prefer-language "python3")
+(setq leetcode-prefer-sql "sqlite")
+(setq leetcode-save-solutions t)
+(setq leetcode-directory "~/leetcode")
 
 (setq global-wakatime-mode t)
 
 (when (eq system-type 'windows-nt)
   (setq gc-cons-threshold (* 512 1024 1024))
   (setq gc-cons-percentage 0.5)
-  (run-with-idle-timer 5 t #'garbage-collect)
-  ;; 显示垃圾回收信息，这个可以作为调试用 ;;
+  (run-with-idle-timer 5 t #'garbage-collect) 
+  ;; 显示垃圾回收信息，这个可以作为调试用 ;; 
   (setq garbage-collection-messages t) )
