@@ -48,7 +48,7 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory (concat liszt-home "/Notes")
-      org-archive-location (concat org-directory "/Archived/%s::")
+      org-archive-location (concat org-directory "/Archive/%s::")
       deft-directory org-directory
       org-roam-directory org-directory
       org-roam-tag-sources '(prop last-directory)
