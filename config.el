@@ -8,7 +8,7 @@
 (setq user-full-name "Liszt21"
       user-mail-address "1832666492@qq.com")
 
-(if IS-WINDOWS
+(if windows?
     (setq liszt-home "C:/Liszt")
   (setq liszt-home "~"))
 
@@ -54,6 +54,7 @@
       org-roam-tag-sources '(prop last-directory)
       org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷")
       )
+
 (after! org
   (setq org-todo-keywords
         '((sequence "TODO(t)"
@@ -76,14 +77,14 @@
           ("[ ]"  :foreground "orange"       :weight bold)
           ("NEXT" :foreground "yellow"       :weight bold)
           ("[-]" :foreground  "yellow"       :weight bold)
-          ("PEND" :foreground "pink"        :weight bold)
-          ("[:]"  :foreground "pink"        :weight bold)
-          ("WILL" :foreground "purple"        :weight bold)
-          ("[?]"  :foreground "purple"        :weight bold)
+          ("PEND" :foreground "pink"         :weight bold)
+          ("[:]"  :foreground "pink"         :weight bold)
+          ("WILL" :foreground "purple"       :weight bold)
+          ("[?]"  :foreground "purple"       :weight bold)
           ("DONE" :foreground "forest green" :weight bold)
           ("[X]"  :foreground "forest green" :weight bold)
-          ("QUIT" :foreground "grey"          :weight bold)
-          ("[Q]" :foreground  "grey"          :weight bold)))
+          ("QUIT" :foreground "grey"         :weight bold)
+          ("[Q]" :foreground  "grey"         :weight bold)))
 
   )
 
@@ -116,7 +117,7 @@
 
 (setq global-wakatime-mode t)
 
-(when (eq system-type 'windows-nt)
+(when windows?
   (setq gc-cons-threshold (* 512 1024 1024))
   (setq gc-cons-percentage 0.5)
   (run-with-idle-timer 5 t #'garbage-collect) 
