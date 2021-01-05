@@ -105,15 +105,17 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;; Key-bindings
+
 (use-package rime
   :custom
   (default-input-method "rime"))
 
-(use-package leetcode)
-(setq leetcode-prefer-language "python3")
-(setq leetcode-prefer-sql "sqlite")
-(setq leetcode-save-solutions t)
-(setq leetcode-directory "~/leetcode")
+(use-package leetcode
+  :custom
+  (leetcode-prefer-language "python")
+  (leetcode-prefer-sql "sqlite")
+  (leetcode-save-solutions t)
+  (leetcode-directory (concat liszt-home "/Notes/Program/LeetCode")))
 
 (setq global-wakatime-mode t)
 

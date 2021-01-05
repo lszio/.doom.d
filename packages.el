@@ -48,18 +48,15 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
 (package! eaf
-  :disable (not IS-LINUX)
+  :disable (not linux?)
   :recipe (:host github
            :repo "manateelazycat/emacs-application-framework"
            :files ("*")))
-
-(package! leetcode)
-(package! rime)
-;; (package! sis)
-(package! esup)
 (package! anki
   :recipe (:host github
            :repo "chenyanming/anki"
            :files ("*")))
+(package! leetcode)
 (package! wakatime-mode)
