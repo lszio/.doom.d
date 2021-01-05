@@ -106,6 +106,13 @@
 ;; they are implemented.
 ;; Key-bindings
 
+;; (after! wakatime-mode
+;;   (global-wakatime-mode)
+  ;; (message "wakatime"))
+
+(global-wakatime-mode)
+;; (add-hook 'prog-mode-hook 'wakatime-mode)
+
 (use-package rime
   :custom
   (default-input-method "rime"))
@@ -117,7 +124,6 @@
   (leetcode-save-solutions t)
   (leetcode-directory (concat liszt-home "/Notes/Program/LeetCode")))
 
-(setq global-wakatime-mode t)
 
 (when windows?
   (setq gc-cons-threshold (* 512 1024 1024))
