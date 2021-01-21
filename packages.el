@@ -60,3 +60,4 @@
            :files ("*")))
 (package! leetcode)
 (package! wakatime-mode)
+(package! rime)
