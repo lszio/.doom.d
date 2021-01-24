@@ -131,3 +131,8 @@
   (run-with-idle-timer 5 t #'garbage-collect) 
   ;; 显示垃圾回收信息，这个可以作为调试用 ;; 
   (setq garbage-collection-messages t) )
+
+;; Load path from zsh login shell
+(when (or linux? macos?)
+  (exec-path-from-shell-initialize)
+  )
