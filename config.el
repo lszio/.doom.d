@@ -111,7 +111,12 @@
   ;; (message "wakatime"))
 
 (global-wakatime-mode)
-;; (add-hook 'prog-mode-hook 'wakatime-mode)
+
+(setq inferior-lisp-program "ros")
+(setq sly-lisp-implementations
+      '((ros ("ros" "run"))
+        (sbcl ("ros" "-L" "sbcl-bin" "run"))
+        (ccl ("ros" "-L" "ccl-bin" "run"))))
 
 (use-package rime
   :custom
