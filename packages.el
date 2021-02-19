@@ -58,6 +58,10 @@
   :recipe (:host github
            :repo "chenyanming/anki"
            :files ("*")))
+(package! parinfer-rust-mode
+  :recipe (:host github
+           :repo "justinbarclay/parinfer-rust-mode"
+           :files ("*")))
 (package! leetcode)
 (package! wakatime-mode)
 (package! rime)

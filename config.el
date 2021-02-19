@@ -52,8 +52,8 @@
       deft-directory org-directory
       org-roam-directory org-directory
       org-roam-tag-sources '(prop last-directory)
-      org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷")
-      )
+      org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
+      
 
 (after! org
   (setq org-todo-keywords
@@ -70,8 +70,8 @@
                     "[?](W)"
                     "|"
                     "[X](D)"
-                    "[Q](Q)"))
-        )
+                    "[Q](Q)")))
+        
   (setq org-todo-keyword-faces
         '(("TODO" :foreground "orange"       :weight bold)
           ("[ ]"  :foreground "orange"       :weight bold)
@@ -84,9 +84,9 @@
           ("DONE" :foreground "forest green" :weight bold)
           ("[X]"  :foreground "forest green" :weight bold)
           ("QUIT" :foreground "grey"         :weight bold)
-          ("[Q]" :foreground  "grey"         :weight bold)))
+          ("[Q]" :foreground  "grey"         :weight bold))))
 
-  )
+  
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -129,15 +129,30 @@
   (leetcode-save-solutions t)
   (leetcode-directory (concat liszt-home "/Notes/Program/LeetCode")))
 
+(use-package! parinfer-rust-mode
+  :hook
+  ;; emacs-lisp-mode
+  ((emacs-lisp-mode
+         clojure-mode
+         scheme-mode
+         lisp-mode
+         racket-mode
+         hy-mode) . parinfer-rust-mode)
+  :init
+  (setq parinfer-rust-auto-download t)
+  :config
+  (map! :map parinfer-rust-mode-map
+        :localleader
+        :desc "Temporarily disable parinfer-rust-mode" "M" #'parinfer-rust-switch-mode))
 
 (when windows?
   (setq gc-cons-threshold (* 512 1024 1024))
   (setq gc-cons-percentage 0.5)
   (run-with-idle-timer 5 t #'garbage-collect) 
   ;; 显示垃圾回收信息，这个可以作为调试用 ;; 
-  (setq garbage-collection-messages t) )
+  (setq garbage-collection-messages t))
 
 ;; Load path from zsh login shell
 (when (or linux? macos?)
-  (exec-path-from-shell-initialize)
-  )
+  (exec-path-from-shell-initialize))
+  
