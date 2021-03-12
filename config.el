@@ -112,11 +112,12 @@
 
 (global-wakatime-mode)
 
-(setq inferior-lisp-program "ros")
-(setq sly-lisp-implementations
-      '((ros ("ros" "run"))
-        (sbcl ("ros" "-L" "sbcl-bin" "run"))
-        (ccl ("ros" "-L" "ccl-bin" "run"))))
+(after! sly
+        (setq inferior-lisp-program "sbcl")
+        (setq sly-lisp-implementations
+              '((ros ("ros" "run"))
+                (sbcl ("ros" "-L" "sbcl-bin" "run"))
+                (ccl ("ros" "-L" "ccl-bin" "run")))))
 
 (use-package rime
   :custom
@@ -128,22 +129,6 @@
   (leetcode-prefer-sql "sqlite")
   (leetcode-save-solutions t)
   (leetcode-directory (concat liszt-home "/Notes/Program/LeetCode")))
-
-(use-package! parinfer-rust-mode
-  :hook
-  ;; emacs-lisp-mode
-  ((emacs-lisp-mode
-         clojure-mode
-         scheme-mode
-         lisp-mode
-         racket-mode
-         hy-mode) . parinfer-rust-mode)
-  :init
-  (setq parinfer-rust-auto-download t)
-  :config
-  (map! :map parinfer-rust-mode-map
-        :localleader
-        :desc "Temporarily disable parinfer-rust-mode" "M" #'parinfer-rust-switch-mode))
 
 (when windows?
   (setq gc-cons-threshold (* 512 1024 1024))
