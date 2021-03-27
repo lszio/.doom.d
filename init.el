@@ -17,7 +17,7 @@
 (defconst linux?   (eq system-type 'gnu/linux) "Are we on a linux machine?")
 (defconst macos?   (eq system-type 'darwin)    "Are we on a macOS machine?")
 (defconst windows? (not (or linux? macos?))    "Are we on windows machine?")
-(defconst wsl?     (string-match-p "microsoft" operating-system-release)    "Are we on wsl?")
+(defconst wsl?     (and linux? (string-match-p "microsoft" operating-system-release))    "Are we on wsl?")
 
 (doom! :input
        ;;chinese
@@ -144,7 +144,7 @@
        javascript        ; all(hope(abandon(ye(who(enter(here))))))
        julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
-       latex             ; writing papers in Emacs has never been so fun
+       ;;latex             ; writing papers in Emacs has never been so fun
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
