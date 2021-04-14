@@ -113,9 +113,10 @@
 (global-wakatime-mode)
 
 (after! sly
-        (setq inferior-lisp-program "sbcl")
+        ;; (setq inferior-lisp-program "sbcl")
         (setq sly-lisp-implementations
-              '((ros ("ros" "run"))
+              '(
+                ;; (ros ("ros" "run"))
                 (sbcl ("ros" "-L" "sbcl-bin" "run"))
                 (ccl ("ros" "-L" "ccl-bin" "run")))))
 
@@ -138,6 +139,5 @@
   (setq garbage-collection-messages t))
 
 ;; Load path from zsh login shell
-(when (or linux? macos?)
-  (exec-path-from-shell-initialize))
-  
+;; (when (or linux? macos?)
+;;   (exec-path-from-shell-initialize))

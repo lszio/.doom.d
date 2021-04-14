@@ -61,4 +61,4 @@
 (package! leetcode)
 (package! wakatime-mode)
 (package! rime)
-(package! exec-path-from-shell)
+;; (package! exec-path-from-shell)
