@@ -113,10 +113,10 @@
 (global-wakatime-mode)
 
 (after! sly
-        ;; (setq inferior-lisp-program "sbcl")
+        (setq inferior-lisp-program "ros")
         (setq sly-lisp-implementations
               '(
-                ;; (ros ("ros" "run"))
+                (ros ("ros" "run"))
                 (sbcl ("ros" "-L" "sbcl-bin" "run"))
                 (ccl ("ros" "-L" "ccl-bin" "run")))))
 
