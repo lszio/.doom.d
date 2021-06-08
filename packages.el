@@ -61,3 +61,4 @@
 (package! leetcode)
 (package! wakatime-mode)
 (package! rime)
+(package! sis)

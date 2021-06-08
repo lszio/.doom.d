@@ -131,13 +131,17 @@
   (leetcode-save-solutions t)
   (leetcode-directory (concat liszt-home "/Notes/Program/LeetCode")))
 
+(when linux?
+  (use-package sis)
+  :config
+  (sis-ism-lazyman-config "1" "2" 'fcitx)
+  (sis-global-cursor-color-mode t)
+  (sis-global-respect-mode t)
+  (sis-global-context-mode t)
+  (sis-global-inline-mode t))
+
 (when windows?
   (setq gc-cons-threshold (* 512 1024 1024))
   (setq gc-cons-percentage 0.5)
   (run-with-idle-timer 5 t #'garbage-collect) 
-  ;; 显示垃圾回收信息，这个可以作为调试用 ;; 
   (setq garbage-collection-messages t))
-
-;; Load path from zsh login shell
-;; (when (or linux? macos?)
-;;   (exec-path-from-shell-initialize))
