@@ -22,20 +22,15 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+;; (setq doom-font (font-spec :family "monospace" :size 18 :weight 'semi-light)
+;;     doom-variable-pitch-font (font-spec :family "sans" :size 20))
+(setq doom-font (font-spec :family "Fira Code" :size 21 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "Sarasa Gothic SC" :size 21)
+      doom-unicode-font (font-spec :family "Sarasa Gothic SC" :size 21))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(when (display-graphic-p)
-  (defun set-font (english chinese english-size chinese-size)
-    (set-face-attribute 'default nil :font
-                        (format   "%s:pixelsize=%d"  english english-size))
-    (dolist (charset '(kana han symbol cjk-misc bopomofo))
-      (set-fontset-font (frame-parameter nil 'font) charset
-                        (font-spec :family chinese :size chinese-size))))
-  (set-font "Fira Code" "kaiti" 20 24))
 
 (setq doom-theme 'doom-one)
 
@@ -57,15 +52,15 @@
 
 (after! org
   (setq org-todo-keywords
-        '((sequence "TODO(t)"
-                    "NEXT(n)"
+        '((sequence "NEXT(n)"
+                    "TODO(t)"
                     "PEND(p)"
                     "WILL(w/!)"
                     "|"
                     "DONE(d!)"
                     "QUIT(q@)")
-          (sequence "[ ](T)"
-                    "[-](N)"
+          (sequence "[-](N)"
+                    "[ ](T)"
                     "[:](P)"
                     "[?](W)"
                     "|"
@@ -76,7 +71,7 @@
         '(("TODO" :foreground "orange"       :weight bold)
           ("[ ]"  :foreground "orange"       :weight bold)
           ("NEXT" :foreground "yellow"       :weight bold)
-          ("[-]" :foreground  "yellow"       :weight bold)
+          ("[-]"  :foreground "yellow"       :weight bold)
           ("PEND" :foreground "pink"         :weight bold)
           ("[:]"  :foreground "pink"         :weight bold)
           ("WILL" :foreground "purple"       :weight bold)
@@ -84,9 +79,7 @@
           ("DONE" :foreground "forest green" :weight bold)
           ("[X]"  :foreground "forest green" :weight bold)
           ("QUIT" :foreground "grey"         :weight bold)
-          ("[Q]" :foreground  "grey"         :weight bold))))
-
-  
+          ("[Q]"  :foreground "grey"         :weight bold))))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
