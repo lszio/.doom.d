@@ -46,10 +46,9 @@
       org-archive-location (concat org-directory "/Archive/%s::")
       deft-directory org-directory
       org-roam-directory org-directory
-      org-roam-tag-sources '(prop last-directory)
+      ;; org-roam-tag-sources '(prop last-directory)
       org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
       
-
 (after! org
   (setq org-todo-keywords
         '((sequence "NEXT(n)"
@@ -102,12 +101,11 @@
 (global-wakatime-mode)
 
 (after! sly
-        (setq inferior-lisp-program "ros")
-        (setq sly-lisp-implementations
-              '(
-                (ros ("ros" "run"))
-                (sbcl ("ros" "-L" "sbcl-bin" "run"))
-                (ccl ("ros" "-L" "ccl-bin" "run")))))
+  (setq inferior-lisp-program "ros")
+  (setq sly-lisp-implementations
+        '((ros ("ros" "run"))
+          (sbcl ("ros" "-L" "sbcl-bin" "run"))
+          (ccl ("ros" "-L" "ccl-bin" "run")))))
 
 (use-package rime
   :defer t
