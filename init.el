@@ -14,13 +14,7 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
-(defconst linux?   (eq system-type 'gnu/linux) "Are we on a linux machine?")
-(defconst macos?   (eq system-type 'darwin)    "Are we on a macOS machine?")
-(defconst windows? (not (or linux? macos?))    "Are we on windows machine?")
-(defconst wsl?     (and linux?
-                        (string-match-p "microsoft"
-                                        operating-system-release))
-                "Are we on wsl?")
+(defconst IS-WSL     (and IS-LINUX (string-match-p "microsoft" operating-system-release)) "Are we on wsl?")
 
 (doom! :input
        ;;chinese

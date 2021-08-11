@@ -8,7 +8,7 @@
 (setq user-full-name "Liszt21"
       user-mail-address "1832666492@qq.com")
 
-(if windows?
+(if IS-WINDOWS
     (setq liszt-home "C:/Liszt")
   (setq liszt-home "~"))
 
@@ -24,9 +24,9 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 18 :weight 'semi-light)
 ;;     doom-variable-pitch-font (font-spec :family "sans" :size 20))
-(setq doom-font (font-spec :family "Fira Code" :size 21 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "Sarasa Gothic SC" :size 21)
-      doom-unicode-font (font-spec :family "Sarasa Gothic SC" :size 21))
+(setq doom-font (font-spec :family "Fira Code" :size 18 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "Sarasa Gothic SC" :size 18)
+      doom-unicode-font (font-spec :family "Sarasa Gothic SC" :size 18))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -99,10 +99,6 @@
 ;; they are implemented.
 ;; Key-bindings
 
-;; (after! wakatime-mode
-;;   (global-wakatime-mode)
-  ;; (message "wakatime"))
-
 (global-wakatime-mode)
 
 (after! sly
@@ -114,8 +110,29 @@
                 (ccl ("ros" "-L" "ccl-bin" "run")))))
 
 (use-package rime
+  :defer t
   :custom
-  (default-input-method "rime"))
+  (rime-user-data-dir (if IS-LINUX (if IS-WSL "/mnt/c/Users/Liszt/AppData/Roaming/Rime" "~/.config/fcitx/rime") "C:/Users/Liszt/AppData/Roaming/Rime"))
+  (default-input-method "rime")
+  (rime-show-candidate 'posframe)
+  (rime-disable-predicates '(rime-predicate-after-alphabet-char-p ;; 在英文字符串之后（必须为以字母开头的英文字符串）
+                             ;; rime-predicate-after-ascii-char-p ;; 任意英文字符后
+                             rime-predicate-prog-in-code-p ;; 在 prog-mode 和 conf-mode 中除了注释和引号内字符串之外的区域
+                             rime-predicate-in-code-string-p ;; 在代码的字符串中，不含注释的字符串。
+                             rime-predicate-evil-mode-p ;; 在 evil-mode 的非编辑状态下
+                             ;; rime-predicate-ace-window-p ;; 激活 ace-window-mode
+                             ;; rime-predicate-hydra-p ;; 如果激活了一个 hydra keymap
+                             ;; rime-predicate-current-input-punctuation-p ;; 当要输入的是符号时
+                             ;; rime-predicate-punctuation-after-space-cc-p ;; 当要在中文字符且有空格之后输入符号时
+                             ;; rime-predicate-punctuation-after-ascii-p ;; 当要在任意英文字符之后输入符号时
+                             ;; rime-predicate-punctuation-line-begin-p ;; 在行首要输入符号时
+                             rime-predicate-space-after-ascii-p ;; 在任意英文字符且有空格之后
+                             rime-predicate-space-after-cc-p ;; 在中文字符且有空格之后
+                             rime-predicate-current-uppercase-letter-p ;; 将要输入的为大写字母时
+                             rime-predicate-tex-math-or-command-p));; 在 (La)TeX 数学环境中或者输入 (La)TeX 命令时
+  :bind
+  (:map rime-mode-map
+   ("C-," . 'rime-force-enable)))
 
 (use-package leetcode
   :custom
@@ -124,16 +141,7 @@
   (leetcode-save-solutions t)
   (leetcode-directory (concat liszt-home "/Notes/Program/LeetCode")))
 
-(when linux?
-  (use-package sis)
-  :config
-  (sis-ism-lazyman-config "1" "2" 'fcitx)
-  (sis-global-cursor-color-mode t)
-  (sis-global-respect-mode t)
-  (sis-global-context-mode t)
-  (sis-global-inline-mode t))
-
-(when windows?
+(when IS-WINDOWS
   (setq gc-cons-threshold (* 512 1024 1024))
   (setq gc-cons-percentage 0.5)
   (run-with-idle-timer 5 t #'garbage-collect) 

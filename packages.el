@@ -50,7 +50,6 @@
 ;(unpin! t)
 
 (package! eaf
-  :disable (not linux?)
   :recipe (:host github
            :repo "manateelazycat/emacs-application-framework"
            :files ("*")))
