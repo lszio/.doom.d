@@ -80,6 +80,15 @@
           ("QUIT" :foreground "grey"         :weight bold)
           ("[Q]"  :foreground "grey"         :weight bold))))
 
+(after! org-capture
+  (setq org-capture-templates
+        `(("t" "Todo"
+           entry (file ,(concat org-directory "/Inbox.org"))
+           "* TODO %?\n  %i\n  %a")
+          ("r" "Read"
+           entry (file ,(concat org-directory "/Inbox.org"))
+           "* TODO %? :Read:\n  %i\n  %a"))))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

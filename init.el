@@ -162,7 +162,7 @@
         +present
         +pomodoro
         +pretty
-        +roam)               ; organize your plain life in plain text
+        +roam2)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
