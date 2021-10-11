@@ -54,9 +54,9 @@
         '((sequence "NEXT(n)"
                     "TODO(t)"
                     "PEND(p)"
-                    "WILL(w/!)"
+                    "WILL(w@/!)"
                     "|"
-                    "DONE(d!)"
+                    "DONE(d)"
                     "QUIT(q@)")
           (sequence "[-](N)"
                     "[ ](T)"
@@ -65,7 +65,7 @@
                     "|"
                     "[X](D)"
                     "[Q](Q)")))
-        
+  (setq org-log-done 'time)
   (setq org-todo-keyword-faces
         '(("TODO" :foreground "orange"       :weight bold)
           ("[ ]"  :foreground "orange"       :weight bold)
