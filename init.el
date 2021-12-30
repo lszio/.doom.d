@@ -17,7 +17,7 @@
 (defconst IS-WSL     (and IS-LINUX (string-match-p "microsoft" operating-system-release)) "Are we on wsl?")
 
 (doom! :input
-       ;;chinese
+       ;; chinese
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
 
@@ -26,9 +26,10 @@
         +childframe)           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       (ivy
-        +fuzzy
-        +icons)               ; a search engine for love and life
+       ;; (ivy
+       ;;  +fuzzy
+       ;;  +icons)               ; a search engine for love and life
+       (vertico +icons)
 
        :ui
        deft              ; notational velocity for Emacs
@@ -47,14 +48,14 @@
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       ;; tabs              ; a tab bar for Emacs
+       tabs              ; a tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
-       ;; unicode           ; extended unicode support for various languages
+       unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
-       zen               ; distraction-free coding or writing
+       ;; zen               ; distraction-free coding or writing
 
        :editor
        (evil +everywhere); come to the dark side, we have cookies
