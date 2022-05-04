@@ -48,7 +48,7 @@
       org-roam-directory org-directory
       ;; org-roam-tag-sources '(prop last-directory)
       org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
-      
+
 (after! org
   (setq org-todo-keywords
         '((sequence "NEXT(n)"
@@ -107,8 +107,6 @@
 ;; they are implemented.
 ;; Key-bindings
 
-(global-wakatime-mode)
-
 (after! sly
   (setq inferior-lisp-program "ros")
   (setq sly-lisp-implementations
@@ -146,7 +144,7 @@
   (leetcode-prefer-language "python")
   (leetcode-prefer-sql "sqlite")
   (leetcode-save-solutions t)
-  (leetcode-directory (concat liszt-home "/Notes/Program/LeetCode")))
+  (leetcode-directory (concat liszt-home "/Notes/content/leetcode")))
 
 (when IS-WINDOWS
   (setq gc-cons-threshold (* 512 1024 1024))
