@@ -8,9 +8,7 @@
 (setq user-full-name "Liszt21"
       user-mail-address "1832666492@qq.com")
 
-(if IS-WINDOWS
-    (setq liszt-home "C:/Liszt")
-  (setq liszt-home "~"))
+(setq liszt-home "~")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -45,8 +43,15 @@
 (setq org-directory (concat liszt-home "/Notes")
       org-archive-location (concat org-directory "/Archive/%s::")
       deft-directory org-directory
+      ;; org-roam
       org-roam-directory org-directory
+      org-roam-file-exclude-regexp ".*/bak/.*"
       ;; org-roam-tag-sources '(prop last-directory)
+      ;; org-brain
+      org-brain-path org-directory
+      org-brain-visualize-default-choices 'all
+      ;; org-brain-include-file-entries t
+      ;; org-brain-file-entries-use-title t
       org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
 
 (after! org
@@ -128,9 +133,9 @@
                              ;; rime-predicate-ace-window-p ;; 激活 ace-window-mode
                              ;; rime-predicate-hydra-p ;; 如果激活了一个 hydra keymap
                              ;; rime-predicate-current-input-punctuation-p ;; 当要输入的是符号时
-                             ;; rime-predicate-punctuation-after-space-cc-p ;; 当要在中文字符且有空格之后输入符号时
-                             ;; rime-predicate-punctuation-after-ascii-p ;; 当要在任意英文字符之后输入符号时
-                             ;; rime-predicate-punctuation-line-begin-p ;; 在行首要输入符号时
+                             rime-predicate-punctuation-after-space-cc-p ;; 当要在中文字符且有空格之后输入符号时
+                             rime-predicate-punctuation-after-ascii-p ;; 当要在任意英文字符之后输入符号时
+                             rime-predicate-punctuation-line-begin-p ;; 在行首要输入符号时
                              rime-predicate-space-after-ascii-p ;; 在任意英文字符且有空格之后
                              rime-predicate-space-after-cc-p ;; 在中文字符且有空格之后
                              rime-predicate-current-uppercase-letter-p ;; 将要输入的为大写字母时
