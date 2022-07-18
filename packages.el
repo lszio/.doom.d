@@ -61,3 +61,6 @@
 (package! wakatime-mode)
 (package! rime)
 ;; (package! sis)
+
+(unpin! org-roam)
+(package! org-roam-ui)
