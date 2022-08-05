@@ -54,6 +54,8 @@
       ;; org-brain-file-entries-use-title t
       org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
 
+(setq rmh-elfeed-org-files (list (concat org-directory "/feeds.org")))
+
 (after! org
   (setq org-todo-keywords
         '((sequence "NEXT(n)"
